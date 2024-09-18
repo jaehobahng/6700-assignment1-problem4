@@ -1,0 +1,19 @@
+iris.inference
+==============
+
+.. py:module:: iris.inference
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   iris.inference.main
+
+
+Module Contents
+---------------
+
+.. py:function:: main()
+

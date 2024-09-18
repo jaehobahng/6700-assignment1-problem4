@@ -1,0 +1,41 @@
+iris.train
+==========
+
+.. py:module:: iris.train
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   iris.train.Model
+
+
+Module Contents
+---------------
+
+.. py:class:: Model(test_size=0.5)
+
+   .. py:attribute:: dataset
+      :value: 'iris'
+
+
+
+   .. py:attribute:: architecture
+      :value: 'KNN'
+
+
+
+   .. py:method:: __call__(data)
+
+
+   .. py:method:: _init_data(test_size=0.5)
+
+
+   .. py:method:: _score()
+
+
+   .. py:method:: _train(test_size=0.5)
+
+

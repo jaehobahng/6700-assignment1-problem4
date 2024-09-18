@@ -1,0 +1,6 @@
+iris.__main__
+=============
+
+.. py:module:: iris.__main__
+
+

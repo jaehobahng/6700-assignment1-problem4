@@ -1,0 +1,17 @@
+iris
+====
+
+.. py:module:: iris
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/iris/__main__/index
+   /autoapi/iris/inference/index
+   /autoapi/iris/train/index
+
+

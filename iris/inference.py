@@ -1,11 +1,15 @@
 import json
 import os
+import pickle
 
 from .train import Model
 
 
 def main():
     m = Model()
+    with open('model.pkl', 'wb') as model_file:
+        pickle.dump(m, model_file)
+
     with open ('./iris_data.json','r') as file:
         data = json.load(file)
     # os.environ["DATA"] = "../iris_data.json"

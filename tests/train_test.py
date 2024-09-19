@@ -1,7 +1,7 @@
 import json
 import os
 
-from .train import Model
+from iris.train import Model
 
 
 def main():
@@ -24,7 +24,14 @@ def main():
         }
     for record, label in zip(data, m(data))]
 
-    json.dump(records, open("out.json", "w"))
 
-# set DATA=C:\path\to\data
-# python main.py
+    return records
+
+
+def test_main():
+    records = main()
+
+    # Your assertion here
+    assert records[0]['label'] == 'versicolor'
+
+# {"dataset": "iris", "architecture": "KNN", "features": 0.96, "data": [1, 2, 3, 4], "label": "versicolor"}

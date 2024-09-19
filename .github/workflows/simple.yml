@@ -25,7 +25,7 @@ jobs:
       run: poetry run make html --directory docs/
 
     - name: Save Module
-      run: python -m iris
+      run: poetry run python -m iris
     
     - name: run pytest
       run: poetry run pytest

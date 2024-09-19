@@ -19,4 +19,7 @@ def main():
         labels={"color": "digit"}
     )
 
-    fig.write_html("public/index.html")
+    fig.write_html("./public/index.html")
+
+if __name__ == "__main__":
+    main()

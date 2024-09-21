@@ -60,8 +60,20 @@ jobs:
     - name: Access repository
       uses: actions/checkout@v4
 
+    - name: Cache Poetry installation
+      uses: actions/cache@v3
+      with:
+        path: ~/.poetry
+        key: poetry-${{ runner.os }}-${{ hashFiles('poetry.lock') }}
+        restore-keys: |
+          poetry-${{ runner.os }}-
+    
     - name: Install poetry
+      if: steps.cache-poetry.outputs.cache-hit != 'true'
       uses: snok/install-poetry@v1
+
+    # - name: Install poetry
+    #   uses: snok/install-poetry@v1
 
     # Install package dependencies (cached)
     - name: Install package

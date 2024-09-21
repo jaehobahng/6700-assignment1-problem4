@@ -65,20 +65,23 @@ jobs:
 
 
     
+    # - name: Install poetry
+    #   if: steps.poetry-cache.outputs.cache-hit != 'true'
+    #   uses: snok/install-poetry@v1
+
+    # - name: Cache Poetry installation
+    #   id: poetry-cache  # Assigning ID for cache-hit reference
+    #   uses: actions/cache@v3
+    #   with:
+    #     path: ~/.poetry
+    #     key: poetry-install-${{ runner.os }}
+    #     restore-keys: |
+    #       poetry-install-
+
+
     - name: Install poetry
-      if: steps.poetry-cache.outputs.cache-hit != 'true'
       uses: snok/install-poetry@v1
 
-    - name: Cache Poetry installation
-      id: poetry-cache  # Assigning ID for cache-hit reference
-      uses: actions/cache@v3
-      with:
-        path: ~/.poetry
-        key: poetry-install-${{ runner.os }}
-        restore-keys: |
-          poetry-install-
-    # - name: Install poetry
-    #   uses: snok/install-poetry@v1
     - name: Check Poetry installation path
       run: |
         echo "Poetry is installed at the following path:"

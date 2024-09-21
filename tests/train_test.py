@@ -3,7 +3,6 @@ import os
 
 from iris.train import Model
 
-
 def main():
     m = Model()
     with open ('./iris_data.json','r') as file:
@@ -23,7 +22,6 @@ def main():
             "label": label,
         }
     for record, label in zip(data, m(data))]
-
 
     return records
 

@@ -1,3 +1,36 @@
+# name: corpus-workflow
+
+# on: [push, pull_request]
+
+# jobs:
+#   ci:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#     - name: Set up Python 3.11
+#       uses: actions/setup-python@v4
+#       with:
+#         python-version: 3.11
+
+#     - name: Access repository
+#       uses: actions/checkout@v4
+
+#     - name: Install poetry
+#       uses: snok/install-poetry@v1
+
+#     - name: Install package
+#       run: poetry install
+
+#     - name: Build documentation
+#       run: poetry run make html --directory docs/
+
+#     - name: Save Module
+#       run: poetry run python -m iris
+    
+#     - name: run pytest
+#       run: poetry run pytest
+
+
 name: corpus-workflow
 
 on: [push, pull_request]
@@ -7,25 +40,52 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    # Step 1: Set up Python 3.11
     - name: Set up Python 3.11
       uses: actions/setup-python@v4
       with:
         python-version: 3.11
 
+    # Step 2: Cache Python dependencies
+    - name: Cache dependencies
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.cache/pypoetry
+          ~/.virtualenvs
+        key: poetry-${{ runner.os }}-${{ hashFiles('poetry.lock') }}
+        restore-keys: |
+          poetry-${{ runner.os }}-
+
+    # Step 3: Check out repository
     - name: Access repository
       uses: actions/checkout@v4
 
+    # Step 4: Install poetry
     - name: Install poetry
       uses: snok/install-poetry@v1
 
+    # Step 5: Install package dependencies (cached)
     - name: Install package
-      run: poetry install
+      run: poetry install --no-root
 
+    # Step 6: Cache pre-trained model
+    - name: Cache pre-trained model
+      uses: actions/cache@v3
+      with:
+        path: ./model.pkl  # Adjust path to where the model is stored
+        key: model-${{ runner.os }}-${{ hashFiles('./model.pkl') }}
+        restore-keys: |
+          model-${{ runner.os }}-
+
+    # Step 7: Run pre-trained model (reusing pre-trained model)
+    - name: Run pre-trained model
+      run: poetry run python -m iris
+
+    # Step 8: Build documentation
     - name: Build documentation
       run: poetry run make html --directory docs/
 
-    - name: Save Module
-      run: poetry run python -m iris
-    
-    - name: run pytest
+    # Step 9: Run tests
+    - name: Run pytest
       run: poetry run pytest

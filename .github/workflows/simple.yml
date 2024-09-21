@@ -63,13 +63,11 @@ jobs:
     - name: Access repository
       uses: actions/checkout@v4
 
-    # - name: Cache Poetry installation
-    #   uses: actions/cache@v3
-    #   with:
-    #     path: ~/.poetry
-    #     key: poetry-${{ runner.os }}-${{ hashFiles('poetry.lock') }}
-    #     restore-keys: |
-    #       poetry-${{ runner.os }}-
+
+    
+    - name: Install poetry
+      if: steps.poetry-cache.outputs.cache-hit != 'true'
+      uses: snok/install-poetry@v1
 
     - name: Cache Poetry installation
       id: poetry-cache  # Assigning ID for cache-hit reference
@@ -79,11 +77,6 @@ jobs:
         key: poetry-install-${{ runner.os }}
         restore-keys: |
           poetry-install-
-    
-    - name: Install poetry
-      if: steps.poetry-cache.outputs.cache-hit != 'true'
-      uses: snok/install-poetry@v1
-
     # - name: Install poetry
     #   uses: snok/install-poetry@v1
 

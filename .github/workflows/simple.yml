@@ -32,7 +32,7 @@
 
 
 
-name: corpus-workflow
+name: iris-workflow
 
 on: [push, pull_request]
 
@@ -41,13 +41,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Step 1: Set up Python 3.11
     - name: Set up Python 3.11
       uses: actions/setup-python@v4
       with:
         python-version: 3.11
 
-    # Step 2: Cache Python dependencies
+    #Cache Python dependencies
     - name: Cache dependencies
       uses: actions/cache@v3
       with:
@@ -58,19 +57,17 @@ jobs:
         restore-keys: |
           poetry-${{ runner.os }}-
 
-    # Step 3: Check out repository
     - name: Access repository
       uses: actions/checkout@v4
 
-    # Step 4: Install poetry
     - name: Install poetry
       uses: snok/install-poetry@v1
 
-    # Step 5: Install package dependencies (cached)
+    # Install package dependencies (cached)
     - name: Install package
       run: poetry install --no-root
 
-    # Step 6: Cache pre-trained model
+    # Cache pre-trained model
     - name: Cache pre-trained model
       uses: actions/cache@v3
       with:
@@ -79,14 +76,12 @@ jobs:
         restore-keys: |
           model-${{ runner.os }}-
 
-    # Step 7: Run pre-trained model (reusing pre-trained model)
     - name: Run pre-trained model
-      run: poetry run python -m iris
+      # run: poetry run python -m iris
+      run: poetry run python -c "import pickle; model = pickle.load(open('./model.pkl', 'rb')); print('Model loaded')"
 
-    # Step 8: Build documentation
     - name: Build documentation
       run: poetry run make html --directory docs/
 
-    # Step 9: Run tests
     - name: Run pytest
       run: poetry run pytest

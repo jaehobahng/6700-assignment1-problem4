@@ -82,13 +82,6 @@ jobs:
     - name: Install poetry
       uses: snok/install-poetry@v1
 
-    - name: Check Poetry installation path
-      run: |
-        echo "Poetry is installed at the following path:"
-        which poetry
-        echo "Listing Poetry's home directory:"
-        ls -la ~/.poetry
-
     # Install package dependencies (cached)
     - name: Install package
       run: poetry install --no-root

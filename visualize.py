@@ -4,6 +4,17 @@ from umap import UMAP
 
 
 def main():
+    """
+    Main function that loads the digits dataset from sklearn, applies UMAP to the data, and creates a scatter plot using Matplotlib.
+
+    1. Load the digits dataset from sklearn.
+    2. Apply UMAP function to the data to reduce the dimensionality.
+    3. Transform the data using the UMAP model.
+    4. Create a scatter plot with Matplotlib.
+    5. Add colorbar and labels to the plot.
+    6. Save the plot as a PNG file. 
+    """
+
     # Load the dataset and apply UMAP
     digits = load_digits()
     umap_2d = UMAP()

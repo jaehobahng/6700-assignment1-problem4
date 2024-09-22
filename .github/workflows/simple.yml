@@ -109,6 +109,10 @@ jobs:
         git config user.name github-actions
         git config user.email github-actions@github.com
 
+    - name: Add upstream remote
+      run: |
+        git remote add upstream https://${{ secrets.PAT_FOR_PRIVATE_REPO }}@github.com/jaehobahng/6700-assignment1-problem4.git
+
     # Add step to commit changes
     - name: Commit changes
       run: |

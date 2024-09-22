@@ -74,6 +74,7 @@
   <h1>Source code for iris.inference</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
 
 <span class="kn">from</span> <span class="nn">.train</span> <span class="kn">import</span> <span class="n">Model</span>
 
@@ -81,7 +82,20 @@
 <div class="viewcode-block" id="main">
 <a class="viewcode-back" href="../../autoapi/iris/inference/index.html#iris.inference.main">[docs]</a>
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Main function to train the model from train.py, evaluate it on the iris dataset and save the results to a json file.</span>
+
+<span class="sd">    1. Load the model from train.py and save it to a pickle file.</span>
+<span class="sd">    2. Load the iris dataset from a json file.</span>
+<span class="sd">    3. Train the model on the dataset.</span>
+<span class="sd">    4. Evaluate the model on the dataset.</span>
+<span class="sd">    5. Save the results to a json file.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">m</span> <span class="o">=</span> <span class="n">Model</span><span class="p">()</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;model.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">model_file</span><span class="p">:</span>
+        <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">model_file</span><span class="p">)</span>
+
     <span class="k">with</span> <span class="nb">open</span> <span class="p">(</span><span class="s1">&#39;./iris_data.json&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
     <span class="c1"># os.environ[&quot;DATA&quot;] = &quot;../iris_data.json&quot;</span>

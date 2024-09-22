@@ -81,6 +81,18 @@
 <div class="viewcode-block" id="Model">
 <a class="viewcode-back" href="../../autoapi/iris/train/index.html#iris.train.Model">[docs]</a>
 <span class="k">class</span> <span class="nc">Model</span><span class="p">:</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class that contains a KNN model to classify iris dataset from sklearn.</span>
+
+<span class="sd">    Methods:</span>
+<span class="sd">        __init__ - initializes the model by training it on the iris dataset.</span>
+<span class="sd">        __call__ - takes a list of data records and returns the predicted labels.</span>
+<span class="sd">        _init_data - loads the iris dataset, defines the features and labels, and splits the data into training and evaluation sets.</span>
+<span class="sd">        _score - calculates the accuracy score of the model on the evaluation data.</span>
+<span class="sd">        _train - trains the KNeighborsClassifier model on the training data.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span> <span class="o">=</span> <span class="s2">&quot;iris&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">architecture</span> <span class="o">=</span> <span class="s2">&quot;KNN&quot;</span>

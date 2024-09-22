@@ -117,9 +117,10 @@ jobs:
 
     # Add step to push changes back to repository
     - name: Push changes
-      uses: ad-m/github-push-action@v0.6.0
-      with:
-        github_token: ${{ secrets.PAT_FOR_PRIVATE_REPO }}
+      run: git push origin main
+      # uses: ad-m/github-push-action@v0.6.0
+      # with:
+      #   github_token: ${{ secrets.PAT_FOR_PRIVATE_REPO }}
 
     - name: Run pytest
       run: poetry run pytest

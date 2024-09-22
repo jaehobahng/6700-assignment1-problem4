@@ -1,40 +1,3 @@
-# name: corpus-workflow
-
-# on: [push, pull_request]
-
-# jobs:
-#   ci:
-#     runs-on: ubuntu-latest
-
-#     steps:
-#     - name: Set up Python 3.11
-#       uses: actions/setup-python@v4
-#       with:
-#         python-version: 3.11
-
-#     - name: Access repository
-#       uses: actions/checkout@v4
-
-#     - name: Install poetry
-#       uses: snok/install-poetry@v1
-
-#     - name: Install package
-#       run: poetry install
-
-#     - name: Build documentation
-#       run: poetry run make html --directory docs/
-
-#     - name: Save Module
-#       run: poetry run python -m iris
-    
-#     - name: run pytest
-#       run: poetry run pytest
-
-
-
-
-
-
 name: iris-workflow
 
 on: [push, pull_request]
@@ -62,22 +25,6 @@ jobs:
 
     - name: Access repository
       uses: actions/checkout@v4
-
-
-    
-    # - name: Install poetry
-    #   if: steps.poetry-cache.outputs.cache-hit != 'true'
-    #   uses: snok/install-poetry@v1
-
-    # - name: Cache Poetry installation
-    #   id: poetry-cache  # Assigning ID for cache-hit reference
-    #   uses: actions/cache@v3
-    #   with:
-    #     path: ~/.poetry
-    #     key: poetry-install-${{ runner.os }}
-    #     restore-keys: |
-    #       poetry-install-
-
 
     - name: Install poetry
       uses: snok/install-poetry@v1
@@ -122,9 +69,6 @@ jobs:
     # Add step to push changes back to repository
     - name: Push changes
       run: git push origin main
-      # uses: ad-m/github-push-action@v0.6.0
-      # with:
-      #   github_token: ${{ secrets.PAT_FOR_PRIVATE_REPO }}
 
     - name: Run pytest
       run: poetry run pytest

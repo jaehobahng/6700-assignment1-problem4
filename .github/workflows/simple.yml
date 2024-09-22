@@ -102,5 +102,24 @@ jobs:
     - name: Build documentation
       run: poetry run make html --directory docs/
 
+
+    # Add step to configure Git
+    - name: Configure Git
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+    # Add step to commit changes
+    - name: Commit changes
+      run: |
+        git add docs/
+        git commit -m "Update documentation"
+
+    # Add step to push changes back to repository
+    - name: Push changes
+      uses: ad-m/github-push-action@v0.6.0
+      with:
+        github_token: ${{ secrets.PAT_FOR_PRIVATE_REPO }}
+
     - name: Run pytest
       run: poetry run pytest

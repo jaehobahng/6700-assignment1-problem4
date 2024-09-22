@@ -5,6 +5,18 @@ from sklearn.neighbors import KNeighborsClassifier
 
 
 class Model:
+
+    """
+    Class that contains a KNN model to classify iris dataset from sklearn.
+
+    Methods:
+        __init__ - initializes the model by training it on the iris dataset.
+        __call__ - takes a list of data records and returns the predicted labels.
+        _init_data - loads the iris dataset, defines the features and labels, and splits the data into training and evaluation sets.
+        _score - calculates the accuracy score of the model on the evaluation data.
+        _train - trains the KNeighborsClassifier model on the training data.
+    """
+
     def __init__(self, test_size=0.5):
         self.dataset = "iris"
         self.architecture = "KNN"

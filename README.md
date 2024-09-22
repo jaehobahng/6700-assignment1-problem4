@@ -5,7 +5,9 @@ This project implements a simple K-Nearest Neighbors (KNN) model on the Iris dat
 ## Features
 
 🪻 Creates and trains a KNN model to predict Iris species via their features. 
+
 🪻 Saves the trained model for future use. 
+
 🪻 Ensures validation through a output verification. 
 
 ### Prerequisites

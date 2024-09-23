@@ -2529,6 +2529,16 @@ files = [
 ]
 
 [[package]]
+name = "umap"
+version = "0.1.1"
+description = "UNIST synthesis MAP solution"
+optional = false
+python-versions = "*"
+files = [
+    {file = "umap-0.1.1.tar.gz", hash = "sha256:5d08c1a335cc7ee175811a99dc9356d3d4b8567ad082e2b1b205198cf27c4256"},
+]
+
+[[package]]
 name = "urllib3"
 version = "2.2.3"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
@@ -2578,4 +2588,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "a9a654f8794bf8de206cd50dc8a25fe8aceb8fa95bec1d13cbb94cf29e8dda1b"
+content-hash = "b0cea52cfdfb495a0e1167127f4d9d14071eef3233039c1d84948194f125ffa7"

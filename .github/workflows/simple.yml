@@ -65,7 +65,7 @@ jobs:
     # Add step to commit changes
     - name: Commit changes
       run: |
-        git add docs/
+        git add ./
         git commit -m "Update documentation"
 
     # Add step to push changes back to repository

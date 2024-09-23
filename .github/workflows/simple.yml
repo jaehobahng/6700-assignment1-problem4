@@ -49,6 +49,8 @@ jobs:
     - name: Build documentation
       run: poetry run make html --directory docs/
 
+    - name: Build visualization
+      run: poetry run python visualize.py
 
     # Add step to configure Git
     - name: Configure Git

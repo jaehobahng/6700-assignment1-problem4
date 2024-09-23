@@ -19,27 +19,6 @@ Module Contents
 
    Class that contains a KNN model to classify iris dataset from sklearn.
 
-   .. method:: __init__ - initializes the model by training it on the iris dataset.
-
-      
-
-   .. method:: __call__ - takes a list of data records and returns the predicted labels.
-
-      
-
-   .. method:: _init_data - loads the iris dataset, defines the features and labels, and splits the data into training and evaluation sets.
-
-      
-
-   .. method:: _score - calculates the accuracy score of the model on the evaluation data.
-
-      
-
-   .. method:: _train - trains the KNeighborsClassifier model on the training data.
-
-      
-      
-
 
    .. py:attribute:: dataset
       :value: 'iris'
@@ -53,13 +32,25 @@ Module Contents
 
    .. py:method:: __call__(data)
 
+      takes a list of data records and returns the predicted labels.
+
+
 
    .. py:method:: _init_data(test_size=0.5)
+
+      loads the iris dataset, defines the features and labels, and splits the data into training and evaluation sets.
+
 
 
    .. py:method:: _score()
 
+      calculates the accuracy score of the model on the evaluation data.
+
+
 
    .. py:method:: _train(test_size=0.5)
+
+      trains the KNeighborsClassifier model on the training data.
+
 
 

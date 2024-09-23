@@ -7,7 +7,7 @@
   <title>iris.train &mdash; iris-project  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=fd3f3429" />
 
   
@@ -104,31 +104,6 @@
 <dt class="sig sig-object py" id="iris.train.Model">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">iris.train.</span></span><span class="sig-name descname"><span class="pre">Model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">test_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.train.Model" title="Link to this definition"></a></dt>
 <dd><p>Class that contains a KNN model to classify iris dataset from sklearn.</p>
-<dl class="py method">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">__init__</span> <span class="pre">-</span> <span class="pre">initializes</span> <span class="pre">the</span> <span class="pre">model</span> <span class="pre">by</span> <span class="pre">training</span> <span class="pre">it</span> <span class="pre">on</span> <span class="pre">the</span> <span class="pre">iris</span> <span class="pre">dataset.</span></span></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">__call__</span> <span class="pre">-</span> <span class="pre">takes</span> <span class="pre">a</span> <span class="pre">list</span> <span class="pre">of</span> <span class="pre">data</span> <span class="pre">records</span> <span class="pre">and</span> <span class="pre">returns</span> <span class="pre">the</span> <span class="pre">predicted</span> <span class="pre">labels.</span></span></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">_init_data</span> <span class="pre">-</span> <span class="pre">loads</span> <span class="pre">the</span> <span class="pre">iris</span> <span class="pre">dataset,</span> <span class="pre">defines</span> <span class="pre">the</span> <span class="pre">features</span> <span class="pre">and</span> <span class="pre">labels,</span> <span class="pre">and</span> <span class="pre">splits</span> <span class="pre">the</span> <span class="pre">data</span> <span class="pre">into</span> <span class="pre">training</span> <span class="pre">and</span> <span class="pre">evaluation</span> <span class="pre">sets.</span></span></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">_score</span> <span class="pre">-</span> <span class="pre">calculates</span> <span class="pre">the</span> <span class="pre">accuracy</span> <span class="pre">score</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">model</span> <span class="pre">on</span> <span class="pre">the</span> <span class="pre">evaluation</span> <span class="pre">data.</span></span></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">_train</span> <span class="pre">-</span> <span class="pre">trains</span> <span class="pre">the</span> <span class="pre">KNeighborsClassifier</span> <span class="pre">model</span> <span class="pre">on</span> <span class="pre">the</span> <span class="pre">training</span> <span class="pre">data.</span></span></dt>
-<dd></dd></dl>
-
 <dl class="py attribute">
 <dt class="sig sig-object py" id="iris.train.Model.dataset">
 <span class="sig-name descname"><span class="pre">dataset</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'iris'</span></em><a class="headerlink" href="#iris.train.Model.dataset" title="Link to this definition"></a></dt>
@@ -142,22 +117,26 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="iris.train.Model.__call__">
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.train.Model.__call__" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>takes a list of data records and returns the predicted labels.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iris.train.Model._init_data">
 <span class="sig-name descname"><span class="pre">_init_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">test_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.train.Model._init_data" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>loads the iris dataset, defines the features and labels, and splits the data into training and evaluation sets.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iris.train.Model._score">
 <span class="sig-name descname"><span class="pre">_score</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.train.Model._score" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>calculates the accuracy score of the model on the evaluation data.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iris.train.Model._train">
 <span class="sig-name descname"><span class="pre">_train</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">test_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.train.Model._train" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>trains the KNeighborsClassifier model on the training data.</p>
+</dd></dl>
 
 </dd></dl>
 

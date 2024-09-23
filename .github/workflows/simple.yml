@@ -31,7 +31,7 @@ jobs:
 
     # Install package dependencies (cached)
     - name: Install package
-      run: poetry install --no-dev --no-interaction --no-ansi
+      run: poetry install --no-root
 
     # Cache pre-trained model
     - name: Cache pre-trained model

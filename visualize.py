@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 from sklearn.datasets import load_digits
-from umap import UMAP
+from umap.umap_ import UMAP
 
 
 def main():
